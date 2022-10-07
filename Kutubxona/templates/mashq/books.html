@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {%for b in books%}
+    <h2 style="display:inline;"><a href="/kitob1/{{b.id}}/">{{b.id}}. {{b}} </a></h2>
+    <a href="/book/{{b.id}}/"><button>O'chirish</button></a><br><br><br>
+    {%endfor%}
+    <br>
+    <br>
+    <br>
+    <form method="post" action="/books/">{% csrf_token %}
+            {{forma.as_p}}
+            <button type="submit">Qo'shish</button>
+    </form>
+     <br>
+    <br>
+
+</body>
+</html>

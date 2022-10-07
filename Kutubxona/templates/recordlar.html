@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hamma recordlar</title>
+</head>
+<body>
+    <br>
+    <hr>
+    <br>
+    <form method="get" action="/recordlar/">
+        <input type="text" name="q_sozi">
+        <button type="submit">Qidirish</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <h1>Hamma recordlar:</h1>
+    {%for r in recordlar%}
+    <h3>{{r.id}}. {{r.student}} <a href="/rdelete/{{r.id}}/"><button>O'chirish</button></a>
+        <a href="/record_t/{{r.id}}/"><button>Tahrirlash</button></a></h3>
+    <hr>
+    <hr>
+    {%endfor%}
+    <form action="/recordlar/" method="post">{%csrf_token%}
+
+        <select name="student">
+            {% for student in studentlar %}
+            <option>{{student}}</option>
+        {% endfor %}
+        </select>
+         <select name="kitob">
+            {% for kitob in kitoblar %}
+            <option>{{kitob}}</option>
+        {% endfor %}
+        </select>
+
+
+
+
+        <label>Olingan sana:</label><input type="date" name="os">
+        <label>Qaytardi:</label><input type="checkbox" name="q">
+        <label>Qaytargan sana:</label><input type="date" name="qs">
+        <button type="submit">Saqlash</button>
+    </form>
+</body>
+</html>

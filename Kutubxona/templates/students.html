@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <br>
+    <br>
+    <form method="get" action="/student/">
+        <input type="text" name="q_sozi">
+        <button type="submit">Qidirish</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <hr>
+    {%for s in student%}
+     <h2 style="display:inline;">{{s.id}}. <a href="/talaba/{{s.id}}/">{{s}} </a></h2>
+    <a href="/talaba_tas/{{s.id}}/"><button>O'chirish</button></a><br><br><br>
+    <a href="/talaba_edit/{{s.id}}/"><button>O'zgartirish</button></a><br><br><br>
+    {%endfor%}
+    <br>
+    <br>
+    <br>
+    <form method="post" action="/student/">{% csrf_token %}
+        {{forma}}
+        <button type="submit">Qo'shish</button>
+    </form>
+</body>
+</html>

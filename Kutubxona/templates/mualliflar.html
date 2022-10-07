@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mualliflar</title>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <form method="get" action="/mualliflar/">
+        <input type="text" name="q_sozi">
+        <button type="submit">Qidirish</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <h1>Hamma mualliflar:</h1>
+    <br>
+    <hr>
+    <br>
+    {%for muallif in mualliflar%}
+    <h2><a href="muallif/{{muallif.id}}/">{{muallif.id}}: {{muallif.ism}}<a/>
+        <a href="/Muallif/{{muallif.id}}/"><button>O'chirish</button></a>
+        <a href="/muallif_t/{{muallif.id}}/"><button>Tahrirlash</button></a> </h2>
+
+    {%endfor%}
+    <form action="/mualliflar/" method="post">{%csrf_token%}
+        <label>Ism:</label><input type="text" name="ism">
+        <input id='j' type="checkbox" name="tirik">
+        <label>Kitob soni:</label><input type="number" name="kitob_soni">
+        <label>Tugilgan sana:</label><input type="date" name="tugilgan_yil">
+        <button type="submit">Saqlash</button>
+    </form>
+</body>
+</html>

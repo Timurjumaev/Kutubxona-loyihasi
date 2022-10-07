@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <hr>
+    <br>
+  <form action="/mualliflar/" method="post">{%csrf_token%}
+    <input type="text" value="{{muallif.ism}}" name="i">
+    {% if muallif.tirik %}
+     <input type="checkbox" checked name="t">
+     {% else %}
+     <input type="checkbox" name="t">
+      {% endif %}
+    <input type="number" value="{{muallif.kitob_soni}}" name="k">
+    <input type="date" value="{{muallif.tugilgan_yil}}" name="ty">
+      <button type="submit">Saqlash</button>
+  </form>
+</body>
+</html>

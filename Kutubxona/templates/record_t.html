@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/recordlar/" method="post">{%csrf_token%}
+    {%if qaytardi%}
+    <label>Qaytardi: </label><input type="checkbox" checked name="q">
+    {%else%}
+    <label>Qaytardi: </label><input type="checkbox" name="q">
+    {%endif%}
+    <label>Qaytargan sana: </label><input type="date" name="qs">
+    <button type="submit">Saqlash</button>
+</form>
+</body>
+</html>
